@@ -1,28 +1,50 @@
 /**
  * Menu Loader - Dynamically injects the menu HTML into pages
- * Let main.js handle all the jQuery initialization
+ * Handles both local development and GitHub Pages deployment
  */
 
 function loadMenu() {
-	// Get the current pathname
 	const currentPath = window.location.pathname;
 	
-	// Split by '/' and filter empty strings
-	const parts = currentPath.split('/').filter(Boolean);
-	
-	// Calculate depth
-	const depth = parts.length - 1;
-	
-	// Build the base path
+	// Detect if we're on GitHub Pages (cookie-shruthi.github.io/portfolio)
+	// or local development (localhost:8000)
 	let basePath = '';
-	for (let i = 0; i < depth; i++) {
-		basePath += '../';
+	let menuPath = '';
+	
+	if (currentPath.includes('/portfolio/')) {
+		// GitHub Pages deployment
+		const match = currentPath.match(/\/portfolio\/(.*)/);
+		const pathAfterPortfolio = match ? match[1] : '';
+		const depth = pathAfterPortfolio.split('/').filter(Boolean).length - 1;
+		
+		// Build relative path back to portfolio root
+		basePath = '';
+		for (let i = 0; i < depth; i++) {
+			basePath += '../';
+		}
+		
+		// But menu path is relative to portfolio root
+		menuPath = basePath + 'assets/includes/menu.html';
+		
+		console.log('Menu Loader - GitHub Pages mode. Path after portfolio:', pathAfterPortfolio, 'Depth:', depth, 'BasePath:', basePath);
+	} else {
+		// Local development
+		const parts = currentPath.split('/').filter(Boolean);
+		const depth = parts.length - 1;
+		
+		basePath = '';
+		for (let i = 0; i < depth; i++) {
+			basePath += '../';
+		}
+		
+		menuPath = basePath + 'assets/includes/menu.html';
+		console.log('Menu Loader - Local mode. Path:', currentPath, 'Depth:', depth, 'BasePath:', basePath);
 	}
 	
-	console.log('Menu Loader - Loading from:', basePath + 'assets/includes/menu.html');
+	console.log('Menu Loader - Fetching menu from:', menuPath);
 	
 	// Fetch the menu template
-	fetch(basePath + 'assets/includes/menu.html')
+	fetch(menuPath)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
