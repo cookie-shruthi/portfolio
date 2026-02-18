@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Push Back Block Project - Phantom by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="../../index.html" class="logo">
+									<span class="symbol"><img src="../../images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../../index.html">Home</a></li>
+							<li><a href="../../generic.html">Ipsum veroeros</a></li>
+							<li><a href="../../generic.html">Tempus etiam</a></li>
+							<li><a href="../../generic.html">Consequat dolor</a></li>
+							<li><a href="../../elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Push Back Block Project</h1>
+
+							<h2>Overview</h2>
+							<p>For this project I will CAD this year's vex game object an 18-sided block. This project can be <strong>used for my robot's CAD</strong> as it will allow me to visualize how the robot interacts with blocks much easier. But it can also be <strong>used to make little gifts</strong> that can be given to other teams.</p>
+
+							<span class="image main"><img src="images/image20.png" alt="" /></span>
+
+							<h1>Creating the Block CAD</h1>
+
+							<h2>Attempt 1</h2>
+							<p>For this project we will be utilizing a lot of variables in each dimension in order to make it so that it can be used for both purposes. This will allow us to change one dimension, such that all the other dimensions will change with it preserving its shape.</p>
+
+							<p>The method I plan on using to create this block is to create half of the block by first creating the square sides before using various tools such as extrude or lofts to create the rest of the sides. Following that I will mirror the block and add finishing touches.</p>
+
+							<p>First I started by creating an octagonal shape with the diameter being the variable <em>diasize</em>, which in this case is 3.25".</p>
+
+							<span class="image main"><img src="images/image8.png" alt="" /></span>
+
+							<p>In the final product <em>diasize</em> will look like this:</p>
+
+							<span class="image main"><img src="images/image13.png" alt="" /></span>
+
+							<p>Next I created a variable table that will allow me to create multiple variables that are related to one another. Here I created the variable <em>x</em> which is the length of the square side of the cube.</p>
+
+							<span class="image main"><img src="images/image21.png" alt="" /></span>
+
+							<p>On an octagon(left) and in this finished product (right) x would be:</p>
+
+							<span class="image main"><img src="images/image15.png" alt="" /></span>
+
+							<p>Using trigonometry I am able to calculate that <img src="images/image1.png" alt="formula" />.</p>
+
+							<span class="image main"><img src="images/image6.png" alt="" /></span>
+
+							<p>After this I extruded the octagon by half of x making it so that it forms half of the square part of the block.</p>
+
+							<span class="image main"><img src="images/image12.png" alt="" /></span>
+
+							<p>I then created an offset plane <em>diasize</em> inches away from the bottom upside of the extruded octagon (the top plane). On this plane I created a square with a length of <em>x</em> which would become the top square of the cube</p>
+
+							<span class="image main"><img src="images/image30.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image18.png" alt="" /></span>
+
+							<p>I then used the loft tool to connect one of the edges to the edge of the square, and did this for four of the sides.</p>
+
+							<span class="image main"><img src="images/image3.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image16.png" alt="" /></span>
+
+							<p>I then used the plane feature and created a plane using three points of the triangle that was formed, before creating a sketch with a triangle and extruding it so that the triangle was filled.</p>
+
+							<span class="image main"><img src="images/image19.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image26.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image28.png" alt="" /></span>
+
+							<p>I mirrored the part to get a final block as shown below.</p>
+
+							<span class="image main"><img src="images/image24.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image14.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image4.png" alt="" /></span>
+
+							<p>However at this point I realized that the block I had created was composed of squares and triangles, but the block I was trying to create was made of squares and hexagons instead.</p>
+
+							<span class="image main"><img src="images/image5.png" alt="" /></span>
+
+							<h2>Attempt 2</h2>
+							<p>To fix this problem I decided to roll back to the sketch I had made at the very beginning. In the previous attempt of creating the block I had extruded part way and used lofts to create the rest of the sides. However, in this attempt, I planned on creating it by making half of the block as an extruded octagon, and removing part of the sides to create the hexagons and the squares, before once again mirroring the block.</p>
+
+							<p>Roll back to the original sketch:</p>
+
+							<span class="image main"><img src="images/image25.png" alt="" /></span>
+
+							<p>After rolling it back, I extruded the octagon by half of <em>diasize</em>.</p>
+
+							<span class="image main"><img src="images/image23.png" alt="" /></span>
+
+							<p>Following this I created a sketch on one of the sides of the octagon, placing a line that is <em>x</em>/2 inches above the top plane. This will mark the edge of where the square will be.</p>
+
+							<span class="image main"><img src="images/image2.png" alt="" /></span>
+
+							<p>Following this I created a plane on this line with an angle of 45°. I chose this angle because all of the sides of the hexagon should be symmetrical, a property that would only be preserved with a plane of this angle.</p>
+
+							<span class="image main"><img src="images/image9.png" alt="" /></span>
+
+							<p>I then created a sketch on this plane with a large rectangle, which would be used to remove part of the edge (using the extrude remove tool). This extrude will form an irregular shape, which once done to all 4 sides will become a hexagon.</p>
+
+							<span class="image main"><img src="images/image17.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image7.png" alt="" /></span>
+
+							<p>This is the final result once done to all four sides.</p>
+
+							<span class="image main"><img src="images/image10.png" alt="" /></span>
+
+							<p>Following this I mirrored this part across the top plane to form the full block.</p>
+
+							<span class="image main"><img src="images/image29.png" alt="" /></span>
+
+							<p>Finally, I added final touches by using the fillet tool on the edges. This tool gives the edges of the block a rounded finish like that of the actual game object. For the fillet radius, I created a new variable <em>radius</em> which is <em>x</em>/10. This variable makes it so that even if the size of the block changes the fillets won't error out, and will preserve its shape.</p>
+
+							<span class="image main"><img src="images/image27.png" alt="" /></span>
+
+							<p>This is the final product of the CAD block:</p>
+
+							<span class="image main"><img src="images/image11.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image22.png" alt="" /></span>
+
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
