@@ -3327,3 +3327,65 @@ input, select, textarea {
 			}
 
 		}
+
+/* Header with Image Layout */
+
+	header.header-with-image {
+		display: flex;
+		align-items: center;
+		gap: 2em;
+		margin-bottom: 2em;
+	}
+
+		header.header-with-image .header-content {
+			flex: 1;
+			min-width: 0;
+		}
+
+		header.header-with-image .header-image {
+			flex: 0 0 280px;
+		}
+
+			header.header-with-image .header-image img {
+				width: 280px;
+				height: 280px;
+				border-radius: 0.5em;
+				display: block;
+				object-fit: cover;
+			}
+
+	@media screen and (max-width: 980px) {
+
+		header.header-with-image {
+			flex-direction: column;
+			gap: 2em;
+		}
+
+			header.header-with-image .header-image {
+				flex: 0 0 240px;
+			}
+
+			header.header-with-image .header-image img {
+				width: 240px;
+				height: 240px;
+			}
+
+	}
+
+	@media screen and (max-width: 736px) {
+
+		header.header-with-image {
+			flex-direction: column;
+			gap: 1.5em;
+		}
+
+			header.header-with-image .header-image {
+				flex: 0 0 200px;
+			}
+
+			header.header-with-image .header-image img {
+				width: 200px;
+				height: 200px;
+			}
+
+	}
