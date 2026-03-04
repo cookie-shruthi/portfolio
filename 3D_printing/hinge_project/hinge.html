@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hinge Project</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #585858;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+      font-size: 16pt;
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 40pt 20pt;
+    }
+
+    @media (max-width: 1200px) {
+      body {
+        max-width: 95%;
+        padding: 35pt 15pt;
+        font-size: 14pt;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        max-width: 100%;
+        padding: 30pt 15pt;
+        font-size: 12pt;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20pt 10pt;
+        font-size: 11pt;
+      }
+    }
+
+    h1 {
+      padding-top: 20pt;
+      padding-bottom: 6pt;
+      font-size: 2em;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+      font-weight: 700;
+      color: #000000;
+      page-break-after: avoid;
+      line-height: 1.3;
+    }
+
+    h2 {
+      padding-top: 18pt;
+      padding-bottom: 6pt;
+      font-size: 1.5em;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+      font-weight: 700;
+      color: #000000;
+      page-break-after: avoid;
+      line-height: 1.5;
+    }
+
+    .title {
+      padding-top: 0pt;
+      padding-bottom: 3pt;
+      font-size: 2.75em;
+      font-weight: 700;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+      color: #000000;
+      page-break-after: avoid;
+      text-align: left;
+      margin: 0 0 1em 0;
+      letter-spacing: -0.035em;
+    }
+
+    p {
+      margin: 0 0 2em 0;
+      color: #585858;
+      font-size: inherit;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+      line-height: 1.75;
+    }
+
+    .spacer {
+      height: 11pt;
+    }
+
+    .table-img-cell {
+      text-align: center;
+    }
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      margin: 2em 0;
+      width: 100%;
+    }
+
+    table td {
+      padding: 1em;
+      border: 1px solid transparent;
+      vertical-align: top;
+      color: #585858;
+    }
+
+    table tr {
+      display: flex;
+      width: 100%;
+    }
+
+    table td {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    table img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      min-height: 250px;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        margin: 1.5em 0;
+      }
+
+      table td {
+        padding: 0.75em;
+        font-size: 0.95em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      table {
+        margin: 1em 0;
+      }
+
+      table tr {
+        flex-wrap: wrap;
+        margin-bottom: 1em;
+      }
+
+      table td {
+        flex: 1 1 100%;
+        min-width: 0;
+        padding: 0.5em;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>  <!-- Header -->
+  <h1 class="title">Hinge Project</h1>
+
+  <!-- Overview Section -->
+  <h2>Overview</h2>
+  <p>
+    For this project I will CAD and 3D print a hinge. Previously, I have only CADed and 3D printed objects that do not move. However, the hinge is an articulated piece meaning that it is printed so that, once completed, it will be able to move (in this case it should be able to bend at its pin).
+  </p>
+
+  <p>This is an example of how my final model should turn out:</p>
+
+  <table style="margin-top: 0em;">
+    <tr>
+      <td class="table-img-cell">
+        <img src="images/image10.png" alt="Hinge model example" style="max-width: 100%; height: auto; min-height: 30px;">
+      </td>
+      <td class="table-img-cell">
+        <img src="images/image16.jpg" alt="Understanding the Anatomy of a Hinge - Delson Hinge" style="max-width: 100%; height: auto; min-height: 400px;">
+      </td>
+    </tr>
+  </table>
+
+  <!-- Attempt 1 Section -->
+  <h2>Attempt 1</h2>
+  <p>
+    I first started off by creating a sketch that represents the side profile of the hinge. The circle represents the knuckle/barrel (which according to the sketch has a diameter of 16 mm) while the rectangles represent the leaf (which has a width of 40 mm from the center of the barrel and a height of 8 mm).
+  </p>
+
+  <div style="text-align: center; margin: 20pt 0;">
+    <img src="images/image7.png" alt="Hinge sketch with barrel and leaf components">
+  </div>
+
+  <p>
+    I then extruded the hinge to make 2 different pieces that would represent different parts of the barrel. On one of the pieces I created a smaller circle, which I extruded with a draft to make a cone-like piece. On the other piece I used the same size circle and used the extrude remove tool to create a gap that would enclose the cone-like extrude of the other piece. These actions created the following piece:
+  </p>
+
+  <div style="text-align: center; margin: 20pt 0;">
+    <img src="images/image8.png" alt="Extruded hinge with cone-like piece">
+  </div>
+
+  <table>
+    <tr>
+      <td class="table-img-cell">
+        <img src="images/image19.png" alt="Hinge piece view 1">
+      </td>
+      <td class="table-img-cell">
+        <img src="images/image4.png" alt="Hinge piece view 2">
+      </td>
+    </tr>
+  </table>
+
+  <p>I then mirrored the part making it so that one of the parts enclosed the other, making a longer hinge.</p>
+
+  <div style="text-align: center; margin: 20pt 0;">
+    <img src="images/image22.png" alt="Mirrored hinge assembly">
+  </div>
+
+  <p>
+    After this I exported the part and moved into AnyCubic Slicer (the slicer that is used to compile the g-code of the part for the 3D Printer). However, after printing the part itself I realized the gaps between the two parts were too small. Because of this, when the printer was creating the print the two pieces fused together making it unable to bend.
+  </p>
+
+  <div style="text-align: center; margin: 20pt 0;">
+    <img src="images/image20.png" alt="Printed hinge attempt 1 - fused pieces">
+  </div>
+
+  <!-- Attempt 2 Section -->
+  <h2>Attempt 2</h2>
+  <p>
+    To fix this problem, I decided to roll back the sketch to the original side profile of the hinge. Originally, I had planned on using an offset tool to create the gap between the two pieces. However, after looking at Onshape's offset tool I realized that it could only be used to make a part larger and not smaller, which wouldn't work for this purpose. Instead to change this problem, rather than creating the full part on one sketch, I only created one half of the part. I then extruded it and added the same cone-like shape that would act as a hinge to it.
+  </p>
+
+  <table>
+    <tr>
+      <td class="table-img-cell">
+        <img src="images/image11.png" alt="Half hinge sketch">
+      </td>
+      <td class="table-img-cell">
+        <img src="images/image5.png" alt="Half hinge extruded">
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    After doing this I created another version of the sketch, and offsetted the piece in the sketch in the sketch itself. While doing this, I made sure that although the barrel was offsetted, the cone-like piece was aligned with the hole on the other piece. To do this, I made it so that the circle that was the base was slightly offcentered so that both would align.
+  </p>
+
+  <p>This is how I offsetted the barrel in the sketch itself. In this sketch it is offsetted by 0.5 mm.</p>
+
+  <div style="text-align: center; margin: 20pt 0;">
+    <img src="images/image21.png" alt="Offset barrel in sketch">
+  </div>
+
+  <p>
+    Both of the circles for the cone-like piece are offsetted by 0.25 mm in opposite directions making it so that they have a total offset of 0.5 mm and therefore align with each other.
+  </p>
+
+  <table>
+    <tr>
+      <td class="table-img-cell">
+        <img src="images/image23.png" alt="Cross-section of offset hinge">
+      </td>
+      <td class="table-img-cell">
+        <img src="images/image12.png" alt="3D view of offset hinge">
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    After doing this I created the second piece using the sketch, and then mirrored the part to get a similar hinge piece as I had before. On the previous hinge, I had stopped here and began moving the piece to the slicer. However, for this iteration I decided to fillet the piece so that there weren't as many sharp ends. Additionally, filleting the corners would slightly increase the gap between both pieces. While doing this I also made sure not to fillet edges that would directly touch the print bed, as doing so would weaken the print's base and may cause it to slip while printing the initial layers.
+  </p>
+
+  <div style="text-align: center; margin: 20pt 0;">
+    <img src="images/image1.png" alt="Filleted hinge">
+  </div>
+
+  <table>
+    <tr>
+      <td class="table-img-cell">
+        <img src="images/image13.png" alt="Filleted hinge view 1">
+      </td>
+      <td class="table-img-cell">
+        <img src="images/image14.png" alt="Filleted hinge view 2">
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    After filletting the piece I once again exported to AnyCubic Slicer and printed the piece once again. However, once printing the piece I realized that the gap between the two pieces was actually too large at the joint itself. Because of this, when moving the hinge the two pieces would occasionally detach from one another, which ruins the purpose of the hinge.
+  </p>
+
+  <div style="text-align: center; margin: 20pt 0;">
+    <img src="images/image3.png" alt="Printed hinge attempt 2 - detaching pieces">
+  </div>
+
+  <!-- Attempt 3 Section -->
+  <h2>Attempt 3</h2>
+  <p>
+    To adjust this, I decided to make the two barrels of both pieces closer together so that they were less likely to slip. Moreover, I decided to make the cone piece/hole longer and narrower than before, allowing the two pieces to stay together much better than before.
+  </p>
+
+  <p>
+    This image is a cross-section view of the hinge from the top. In the "after" image you can see that the cone piece is significantly longer and more embedded into the hole, which is what contributes to the piece's stability.
+  </p>
+
+  <table>
+    <tr>
+      <td>
+        <p class="comparison-label">Before (V2)</p>
+        <img src="images/image17.png" alt="Cross-section before optimization">
+      </td>
+      <td>
+        <p class="comparison-label">After (V3)</p>
+        <img src="images/image6.png" alt="Cross-section after optimization" style="max-width: 100%; height: auto;">
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    After changing the piece I exported to AnyCubic Slicer and began printing it. This hinge is able to bend and the two pieces are connected and structurally sound.
+  </p>
+
+  <p>This is how the final hinge turned out:</p>
+
+  <table>
+    <tr>
+      <td class="table-img-cell">
+        <img src="images/image9.png" alt="Final hinge assembly">
+      </td>
+      <td class="table-img-cell">
+        <img src="images/image18.png" alt="Final hinge detail view">
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>
+        <p>This is how the hinge looks in its original form (unbent).</p>
+        <img src="images/image2.png" alt="Hinge unbent">
+      </td>
+      <td>
+        <p>This is how the hinge looks when bent.</p>
+        <img src="images/image15.png" alt="Hinge bent">
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

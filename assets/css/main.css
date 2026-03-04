@@ -2582,7 +2582,7 @@ input, select, textarea {
 			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
 			transition: transform 0.5s ease, opacity 0.5s ease;
 			position: relative;
-			width: calc(33.33333% - 2.5em);
+			width: calc(25% - 2.5em);
 			margin: 2.5em 0 0 2.5em;
 		}
 
@@ -2770,12 +2770,25 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			.tiles {
-				margin: -1.25em 0 0 -1.25em;
+				margin: -1.875em 0 0 -1.875em;
 			}
 
 				.tiles article {
-					width: calc(33.33333% - 1.25em);
-					margin: 1.25em 0 0 1.25em;
+					width: calc(33.33333% - 1.875em);
+					margin: 1.875em 0 0 1.875em;
+				}
+
+		}
+
+		@media screen and (max-width: 1024px) {
+
+			.tiles {
+				margin: -1.875em 0 0 -1.875em;
+			}
+
+				.tiles article {
+					width: calc(33.33333% - 1.875em);
+					margin: 1.875em 0 0 1.875em;
 				}
 
 		}
@@ -2783,12 +2796,12 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			.tiles {
-				margin: -2.5em 0 0 -2.5em;
+				margin: -1.875em 0 0 -1.875em;
 			}
 
 				.tiles article {
-					width: calc(50% - 2.5em);
-					margin: 2.5em 0 0 2.5em;
+					width: calc(50% - 1.875em);
+					margin: 1.875em 0 0 1.875em;
 				}
 
 		}
@@ -3315,10 +3328,27 @@ input, select, textarea {
 
 	#wrapper > * > .inner {
 		width: 100%;
-		max-width: 68em;
+		max-width: 90em;
 		margin: 0 auto;
 		padding: 0 2.5em;
 	}
+
+		@media screen and (max-width: 1200px) {
+
+			#wrapper > * > .inner {
+				max-width: 85em;
+			}
+
+		}
+
+		@media screen and (max-width: 980px) {
+
+			#wrapper > * > .inner {
+				max-width: 100%;
+				padding: 0 2em;
+			}
+
+		}
 
 		@media screen and (max-width: 736px) {
 
@@ -3333,7 +3363,7 @@ input, select, textarea {
 	header.header-with-image {
 		display: flex;
 		align-items: center;
-		gap: 2em;
+		gap: 3em;
 		margin-bottom: 2em;
 	}
 
@@ -3343,16 +3373,33 @@ input, select, textarea {
 		}
 
 		header.header-with-image .header-image {
-			flex: 0 0 280px;
+			flex: 0 0 320px;
 		}
 
 			header.header-with-image .header-image img {
-				width: 280px;
-				height: 280px;
+				width: 320px;
+				height: 320px;
 				border-radius: 0.5em;
 				display: block;
 				object-fit: cover;
 			}
+
+	@media screen and (max-width: 1200px) {
+
+		header.header-with-image {
+			gap: 2.5em;
+		}
+
+			header.header-with-image .header-image {
+				flex: 0 0 300px;
+			}
+
+			header.header-with-image .header-image img {
+				width: 300px;
+				height: 300px;
+			}
+
+	}
 
 	@media screen and (max-width: 980px) {
 
@@ -3362,12 +3409,12 @@ input, select, textarea {
 		}
 
 			header.header-with-image .header-image {
-				flex: 0 0 240px;
+				flex: 0 0 280px;
 			}
 
 			header.header-with-image .header-image img {
-				width: 240px;
-				height: 240px;
+				width: 280px;
+				height: 280px;
 			}
 
 	}
@@ -3380,12 +3427,29 @@ input, select, textarea {
 		}
 
 			header.header-with-image .header-image {
-				flex: 0 0 200px;
+				flex: 0 0 220px;
 			}
 
 			header.header-with-image .header-image img {
-				width: 200px;
-				height: 200px;
+				width: 220px;
+				height: 220px;
+			}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		header.header-with-image {
+			gap: 1em;
+		}
+
+			header.header-with-image .header-image {
+				flex: 0 0 180px;
+			}
+
+			header.header-with-image .header-image img {
+				width: 180px;
+				height: 180px;
 			}
 
 	}
