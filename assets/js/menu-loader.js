@@ -91,6 +91,52 @@ function loadMenu() {
 		.catch(error => console.error('Menu Loader - Error:', error));
 }
 
+function getBasePath() {
+	const currentPath = window.location.pathname;
+	let basePath = '';
+
+	if (currentPath.includes('/portfolio/')) {
+		const match = currentPath.match(/\/portfolio\/(.*)/);
+		const pathAfterPortfolio = match ? match[1] : '';
+		const depth = pathAfterPortfolio.split('/').filter(Boolean).length - 1;
+
+		for (let i = 0; i < depth; i++) {
+			basePath += '../';
+		}
+	} else {
+		const parts = currentPath.split('/').filter(Boolean);
+		const depth = parts.length - 1;
+
+		for (let i = 0; i < depth; i++) {
+			basePath += '../';
+		}
+	}
+
+	return basePath;
+}
+
+function loadFollow() {
+	const basePath = getBasePath();
+	const followPath = basePath + 'assets/includes/follow.html';
+
+	fetch(followPath)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+			return response.text();
+		})
+		.then(html => {
+			const container = document.getElementById('follow-section');
+			if (!container) {
+				console.warn('Follow Loader - placeholder not found');
+				return;
+			}
+			container.innerHTML = html;
+		})
+		.catch(error => console.error('Follow Loader - Error:', error));
+}
+
 /**
  * Wait for jQuery to load and reinitialize the menu
  */
@@ -188,7 +234,11 @@ function waitForjQueryAndReinitMenu() {
 
 // Load menu when DOM is ready
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', loadMenu);
+	document.addEventListener('DOMContentLoaded', function() {
+		loadMenu();
+		loadFollow();
+	});
 } else {
 	loadMenu();
+	loadFollow();
 }
