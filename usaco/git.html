@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Code Embedder</title>
+    <!-- Prism.js Theme (Okaidia) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+
+    <!-- Prism.js Core & Auto-loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f4f9; }
+        .code-container { max-width: 900px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .filename { background: #272822; color: #fff; padding: 10px 15px; font-size: 0.9em; border-bottom: 1px solid #3e3e3e; }
+    </style>
+    <script>
+        async function fetchGithubCode(containerId, user, repo, branch, filePath) {
+            const container = document.getElementById(containerId);
+            const label = container.querySelector('.filename');
+            const codeElement = container.querySelector('code');
+            const url = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/${filePath}`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('File not found');
+
+                const text = await response.text();
+                label.textContent = filePath.split('/').pop();
+
+                const extension = filePath.split('.').pop();
+                codeElement.className = `language-${extension}`;
+                codeElement.textContent = text;
+
+                Prism.highlightElement(codeElement);
+            } catch (err) {
+                codeElement.textContent = 'Error loading code: ' + err.message;
+                label.textContent = 'Error';
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1>GitHub Code Embedder - example 21</h1>
+
+    <div class="code-container" id="code1">
+        <div class="filename">Loading file...</div>
+        <pre><code>/* Code will load here */</code></pre>
+    </div>
+    <script>fetchGithubCode('code1', 'cookie-shruthi', 'high-stakes', 'master', 'src/main.cpp');</script>
+
+       <h1>GitHub Code Embedder - Example 2</h1>
+
+    <div class="code-container" id="code2">
+        <div class="filename">Loading file...</div>
+        <pre><code>/* Code will load here */</code></pre>
+    </div>
+    <script>fetchGithubCode('code2', 'prabhulav', 'ai_product_copy_writer', 'main', 'config.txt');</script>
+
+</body>
+</html>
