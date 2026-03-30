@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Code Embedder</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
     <!-- Prism.js Theme (Okaidia) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 
@@ -11,13 +13,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../assets/js/github-code-loader.js"></script>
-    <style>
-        body { font-family: sans-serif; padding: 20px; background: #f4f4f9; }
-        .code-container { max-width: 900px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .filename { background: #272822; color: #fff; padding: 10px 15px; font-size: 0.9em; border-bottom: 1px solid #3e3e3e; }
-    </style>
-</head>
-<body>
+    <script src="../assets/js/menu-loader.js"></script>
+    </head>
+<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
 
     <h1>GitHub Code Embedder - example 21</h1>
 
@@ -25,7 +26,7 @@
         <div class="filename">Loading file...</div>
         <pre><code>/* Code will load here */</code></pre>
     </div>
-    <script>fetchGithubCode('code1', 'cookie-shruthi', 'high-stakes', 'master', 'src/main.cpp');</script>
+    <script>fetchGithubCode('code1', 'cookie-shruthi', 'usaco_algorithms', 'main', 'purchasingmilk.cpp');</script>
 
        <h1>GitHub Code Embedder - Example 2</h1>
 
@@ -33,7 +34,43 @@
         <div class="filename">Loading file...</div>
         <pre><code>/* Code will load here */</code></pre>
     </div>
-    <script>fetchGithubCode('code2', 'prabhulav', 'ai_product_copy_writer', 'main', 'config.txt');</script>
+    <script>fetchGithubCode('code2', 'cookie-shruthi', 'usaco_algorithms', 'main', 'squarepasture.cpp');</script>
+    <p><a href="index.html">← Back to USACO page</a></p>
+				</div>
+			</div>
+			<footer id="footer">
+				<div class="inner">
+					<section>
+						<h2>Get in touch</h2>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half">
+									<input type="text" name="name" id="name" placeholder="Name" />
+								</div>
+								<div class="field half">
+									<input type="email" name="email" id="email" placeholder="Email" />
+								</div>
+								<div class="field">
+									<textarea name="message" id="message" placeholder="Message"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send" class="primary" /></li>
+							</ul>
+						</form>
+					</section>
+					<section id="follow-section"></section>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
 
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
 </body>
 </html>
