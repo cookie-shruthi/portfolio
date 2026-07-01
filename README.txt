@@ -28,3 +28,6 @@ Credits:
 	Other:
 		jQuery (jquery.com)
 		Responsive Tools (github.com/ajlkn/responsive-tools)
+
+
+To run a local server type "python3 -m http.server 8000" in terminal
