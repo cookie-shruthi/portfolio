@@ -127,9 +127,18 @@ function loadFollow() {
 			return response.text();
 		})
 		.then(html => {
+			const existingFooter = document.querySelector('footer#footer');
+			const tempDiv = document.createElement('div');
+			tempDiv.innerHTML = html.trim();
+			const importedFooter = tempDiv.querySelector('footer#footer');
+
+			if (existingFooter && importedFooter) {
+				existingFooter.innerHTML = importedFooter.innerHTML;
+				return;
+			}
+
 			const container = document.getElementById('follow-section');
 			if (!container) {
-				console.warn('Follow Loader - placeholder not found');
 				return;
 			}
 			container.innerHTML = html;
@@ -232,13 +241,23 @@ function waitForjQueryAndReinitMenu() {
 	console.log('Menu Loader - Menu reinitialization complete');
 }
 
-// Load menu when DOM is ready
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', function() {
-		loadMenu();
-		loadFollow();
-	});
-} else {
+let sharedContentInitialized = false;
+
+function initializeSharedContent() {
+	if (sharedContentInitialized) {
+		return;
+	}
+	sharedContentInitialized = true;
 	loadMenu();
 	loadFollow();
 }
+
+// Load menu and footer when the page is ready
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initializeSharedContent, { once: true });
+} else {
+	initializeSharedContent();
+}
+
+window.addEventListener('load', initializeSharedContent, { once: true });
+window.setTimeout(initializeSharedContent, 100);
