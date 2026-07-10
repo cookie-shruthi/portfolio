@@ -7,6 +7,16 @@
 		<link rel="stylesheet" href="../../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
 		<script src="../../assets/js/menu-loader.js"></script>
+		<script>
+			window.MathJax = {
+				tex: {
+					inlineMath: [['$', '$'], ['\\(', '\\)']],
+					displayMath: [['$$', '$$'], ['\\[', '\\]']]
+				},
+				svg: { fontCache: 'global' }
+			};
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 		<style>
 			pre {
 				white-space: pre-wrap;
@@ -173,16 +183,8 @@
 								<figcaption>Positioning workflow</figcaption>
 							</figure>
 							<li>The robot should calculate the distance it needs to travel and the angle it needs to turn to reach the desired location.</li>
-                            <figure class="project-figure">
-								<img src="images/image1.png" alt="Distance equation diagram" />
-								<figcaption>Distance formula</figcaption>
-							</figure>
-                            <br>
-							<figure class="project-figure">
-								<img src="images/image2.png" alt="Angle equation diagram" />
-								<figcaption>Angle formula</figcaption>
-							</figure>
-                            <br>
+							<p>Heading = $\tan^{-1}\left(\frac{y}{x}\right)$ <br />
+                            Distance = $\sqrt{x^2+y^2}$</p>
                             <figure class="project-figure">
 								<img src="images/image5.png" alt="Drive sequence diagram" />
 								<figcaption>Drive sequence</figcaption>
