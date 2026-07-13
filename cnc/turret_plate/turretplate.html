@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Turret Plate Project - Phantom by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<script src="../../assets/js/menu-loader.js"></script>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Menu will be loaded here by menu-loader.js -->
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>CNCing a Turret Plate</h1>
+
+							<p>Previously, our FTC team had sent out orders to Xometry and other places offering CNC services to machine our parts. However, these were often extremely <strong>expensive</strong>, which is very hard on a school team's budget, and took a long time to get parts delivered back to us. Because of this, starting this season, our team planned on fabricating our own custom parts. With this, I became in charge of machining parts for our team: the first part I decided to take up was an aluminum turret plate. This turret plate would be used to hold up the turret (shooter) mechanism of our robot; the plate will keep the turret steady on the robot while preserving the robot's structural identity. I had to do this on an 8mm aluminium plate. I had experience with 6mm polycarbonate milling, so I decided that it would be a good place to start.</p>
+
+							<span class="image main"><img src="images/image5.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image9.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image13.png" alt="" /></span>
+
+							<p>Before beginning to CNC the aluminum plate, I started by practicing on a wood plate. I started by milling my own name as a refresher on the different parameters required to CNC a piece (ex. feed rate, step down, etc).</p>
+
+							<p>After practicing CNC machining with a wood piece, I began researching techniques on how to machine aluminum. Through research from <a href="https://resources.sienci.com/view/mo-feeds-and-speeds/" target="_blank" rel="noopener noreferrer">Sienci Lab</a>, I found ideal speed and feeds for machining, which I reduced slightly to my machine's (Lunyee Pro 4040 50w spindle) capabilities, as well as the fact that in order to make the machining most effective it would help to use a coolant to cool the metal and reduce friction after the bit passes through an area (I decided to use water as a replacement for standard coolant).</p>
+
+							<p>Speeds and feeds chart from Sienci Lab:</p>
+
+							<span class="image main"><img src="images/image10.png" alt="" /></span>
+
+							<p>Before cutting the aluminum piece, I had to first convert the CAD of the turret plate into something readable by the CNC machine, in other words convert it to Gcode. To do this, I used the Onshape Kiri:moto extension which can do this with my input of the different feeds and speeds.</p>
+
+							<span class="image main"><img src="images/image11.png" alt="" /></span>
+
+							<p>To cut the aluminum I used the spindle bit Upcut 50.8*25.4mm*0.25*0.25.</p>
+
+							<span class="image main"><img src="images/image6.png" alt="" /></span>
+
+							<p>Along with this I used the following feeds and speeds:</p>
+
+							<ul>
+								<li>Spindle RPM: 11500 rpm</li>
+								<li>Feed Rate: 30 mm/rev</li>
+								<li>Plunge Rate: 20 mm/sec</li>
+								<li>Step Down: 0.5 mm</li>
+								<li>Step Over: 0.45 mm</li>
+							</ul>
+
+							<p>Once I began cutting the aluminum piece I ran into a problem: the spindle bits kept on breaking after machining small portions of the turret plate.</p>
+
+							<span class="image main"><img src="images/image2.png" alt="" /></span>
+
+							<p>To solve this issue, I began iterating between different feed rates, spindle speeds, and step down distances. The main reason why the spindle's bits kept breaking was that there was too much of a load on the spindle when it tried to cut through the aluminum. By decreasing the step down (the distance that the bit moves down after every pass), decreasing the feed rate (how fast the bit moves while machining), and increasing the spindle speed will make it so that for the same distance the machine will require much less force to cut, making it so the load on the spindle bit is much lighter than before. However even after continuing to do this the bit continued to break. To solve this I switched to a more powerful motor and bits. Although this worked much better than the previous solution, it ended up breaking down when in the end stretch after 4 hours of machining and still the plate couldn't be used. After much deliberation, I came to the decision that attempting to cut the aluminum for longer would only end up becoming a waste of materials and time, as I did not have the resources to cut aluminum that may be used in professional settings (our machine was originally intended for engraving in wood, I didn't have a proper coolant, etc). Instead, I came to the decision to switch to another material. The final product for this cut is the following (because the machine broke down the aluminum isn't cut fully and therefore cannot be separated from the rest of the aluminum plate):</p>
+
+							<span class="image main"><img src="images/image8.png" alt="" /></span>
+
+							<p>After failures with machining aluminum we switched to Delrin polycarbonate. Previously, I have used this material for many uses in VEX robotics so I believed that this may end up working well. Using feeds and speeds, I had gotten from previous times cutting polycarbonate, I began cutting the plate.</p>
+
+							<p>To cut the polycarbonate I used a different spindle bit: HQMaster Spiral Uncut Bit.</p>
+
+							<span class="image main"><img src="images/image4.png" alt="" /></span>
+
+							<p>Along with this I used the following feeds and speeds:</p>
+
+							<ul>
+								<li>Spindle RPM: 10000 rpm</li>
+								<li>Feed Rate: 50 mm/rev</li>
+								<li>Plunge Rate: 20 mm/sec</li>
+								<li>Step Down: 1 mm (increased because polycarbonate is easier to cut)</li>
+								<li>Step Over: 0.45 mm</li>
+							</ul>
+
+							<p>The polycarbonate plate cut without the hardships that had come while cutting the turret plate in aluminum. The final product for the polycarbonate plate is the following:</p>
+
+							<span class="image main"><img src="images/image1.png" alt="" /></span>
+
+							<p>After cutting the piece I stress tested the piece and came across a problem: previously for VEX I had used this polycarbonate for small pieces which came out as sturdy, however because of the larger size of the turret plate, the resulting piece ended up bending when force was applied. Because this piece was going to be used as a structural piece holding up a heavy turret, this would end up being detrimental to our robot in the long term as it may cause inaccuracy in shooting and may break very easily.</p>
+
+							<p>With sturdiness in mind, I decided to search for another material to use. After much thought I landed on wood. However there were so many different types of wood and I had to decide which one would work best for us. To narrow it down I decided to choose between MDF, plywoods, and solid woods</p>
+
+							<div class="table-wrapper">
+								<table class="alt">
+									<thead>
+										<tr>
+											<th></th>
+											<th>Pros</th>
+											<th>Cons</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>MDF (Medium-Density Fiberboard)</td>
+											<td>Very smooth, doesn't splinter while machining, highly cost effective (cheap)</td>
+											<td>Sags under heavy weights, absorbs moisture and causes swelling</td>
+										</tr>
+										<tr>
+											<td>Plywood</td>
+											<td>Structurally strong, stiff, highly resistant to warping, grips screws exceptionally well, relatively lightweight.</td>
+											<td>Has layered edges, more expensive than MDF, splinters more easily</td>
+										</tr>
+										<tr>
+											<td>Solid Wood</td>
+											<td>Has more aesthetics, higher durability</td>
+											<td>Most expensive option, expands and contracts based on humidity, susceptible to warping</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<p>After looking through the pros and cons of the different options I decided to go with 0.25 inch thick MDF because it matches my requirements the most as it is cost effective and requires less work to smoothen, while its cons isn't as harmful as the heavy weights needed for it to sag are much higher than needed for robotics (15+ lbs) and it will not be exposed to moisture as that would also harm the robot's electronics.</p>
+
+							<p>After deciding to use MDF, I researched tips and tricks to cutting MDF. I realized that like polycarbonate, cutting MDF doesn't require coolants and is much more straightforward than cutting aluminum. So after finding the ideal feeds and speeds for MDF and adjusting it to fit my machine's capabilities, I began to machine the MDF plank.</p>
+
+							<p>To cut the MDF I used the same spindle bit as used for cutting the polycarbonate: HQMaster Spiral Uncut Bit.</p>
+
+							<p>Along with this I used the following feeds and speeds:</p>
+
+							<ul>
+								<li>Spindle RPM: 10000 rpm</li>
+								<li>Feed Rate: 70 mm/rev (increased because MDF is easiest to cut of the 3)</li>
+								<li>Plunge Rate: 20 mm/sec</li>
+								<li>Step Down: 1.5 mm (increased because MDF is easiest to cut of the 3)</li>
+								<li>Step Over: 0.45 mm</li>
+							</ul>
+
+							<p>As our machine was originally intended for machining wood, the machining process was fairly straight forward and went smoothly. After cutting the plate, I tested the plate for its durability and found it much more sturdy than the polycarbonate plate. The final product of the MDF plate is:</p>
+
+							<span class="image main"><img src="images/image7.png" alt="" /></span>
+
+							<p>After checking its strength, I passed the plate back to the team. Back at the team's meeting spot we also decided to coat the plate for water protection as an extra precaution and spray paint it to match the robot's aesthetic. After adding the finishing touches to the plate we incorporated it into the robot.</p>
+
+							<span class="image main"><img src="images/image3.png" alt="" /></span>
+
+							<span class="image main"><img src="images/image12.png" alt="" /></span>
+
+							<h2>Takeaways from this project</h2>
+
+							<p>Through this project I learnt about various aspects of CNC machining that had previously been unknown to me. I learnt not only about the aspects of cutting aluminum, polycarb, and MDF, but also how to iterate between different feeds and speeds to reduce load while maintaining the machines efficiency.</p>
+
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section id="follow-section">
+						<h2>Follow</h2>
+						<ul class="icons">
+							<li><a href="https://www.youtube.com/@STEM_with_shruthi" class="icon brands style2 fa-youtube" target="_blank" rel="noopener noreferrer"><span class="label">YouTube</span></a></li>
+							<li><a href="https://github.com/cookie-shruthi" class="icon brands style2 fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+							<li><a href="https://mail.google.com/mail/u/0/?fs=1&to=shruthiprabhu772@gmail.com&tf=cm" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="https://www.linkedin.com/in/shruthi-prabhu-a4abb0367/" class="icon brands style2 fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
