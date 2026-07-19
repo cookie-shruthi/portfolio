@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Phone Stand Project - Phantom by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<script src="../../assets/js/menu-loader.js"></script>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Menu will be loaded here by menu-loader.js -->
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Mathematically Modeling a Phone Stand</h1>
+
+							<h1>Objective</h1>
+							<p>When watching TV, scrolling, or playing games on a phone, users often need to hold their device for extended periods of time. This can easily become very uncomfortable and reduce the overall experience and relaxation. In order to maximise comfort, I need to find a way to hold the phone up without sacrificing the experience in the process.</p>
+
+							<h1>Problem</h1>
+							<p>Design a compact, freestanding phone stand that securely supports a phone on a table or other flat surface. The stand should maximize screen visibility while remaining compact, cheap, easy to carry and use, durable, and not permanent.</p>
+
+							<h1>Possible Solutions</h1>
+							<p>To solve this issue I came up with three possible solutions:</p>
+							<ol>
+								<li>A triangular stand that sticks to the back of the phone and holds it up</li>
+								<li>An easel design: an adjustable handle can be used to hold up the phone</li>
+							</ol>
+
+							<span class="image main"><img src="images/image10.png" alt="" /></span>
+
+							<ol start="3">
+								<li>A design that places the phone in a block with a slant</li>
+							</ol>
+
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th>Pros</th>
+										<th>Cons</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Solution 1: triangular stand</td>
+										<td>This is the sturdiest design of the three and the most durable.</td>
+										<td>This design is more permanent: once you attach it to the phone it will be difficult to remove and adjust.</td>
+									</tr>
+									<tr>
+										<td>Solution 2: easel design</td>
+										<td>This design is very easy to adjust and customize to one's preferences.</td>
+										<td>Because of the hinge it is difficult to manufacture. It is also less durable because of it.</td>
+									</tr>
+									<tr>
+										<td>Solution 3: block design</td>
+										<td>This design is simple to manufacture and sturdy, while allowing you to remove it at any time.</td>
+										<td>It is not as adjustable as the second design (the viewing angle can not be changed without changing the CAD itself).</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<p>After much deliberation, I have decided that the solution that adhered most to our constraints was solution 3: the block design. The first design, because it would be stuck to the phone, was more of a permanent solution. On the other hand, the second design, because it was adjustable, would be harder to manufacture and less sturdy than the other designs (which I am prioritizing more than adjustability for this design).</p>
+
+							<h1>Design Process</h1>
+							<p>Normally, I would prototype and design the stand. However, I have decided to approach this challenge with mathematical modeling: I am going to completely design, taking account for tipping and other factors, before creating the model.</p>
+
+							<p>Looking at other stand designs and based on personal experiences, I have found that stands that work the best often have a certain degree of slant. After eyeing the slants, I found that the angles that worked best for me were within 60 and 75 degrees. Through research by <a href="https://www.lenovo.com/us/en/glossary/viewing-angle/?orgRef=https%3A%2F%2Fwww.google.com%2F&srsltid=AfmBOoqXi-LgQ_Ss_A27MTQqkS7iyk2qFZMrBm_azxbWGJ7kNrb-CUme" target="_blank" rel="noopener noreferrer">Lenovo</a>, I found that the ideal viewing angle was, in fact, between 60 and 80 degrees. I eventually decided to design my prototype with the viewing angle of 75 degrees which is within both ranges.</p>
+
+							<p>After finding the ideal viewing angle, I began to envision how I wanted the general structure of the stand using a cross section of the stand. Although I eventually planned on customizing the stand later on with the body of an animal (cat, dog, bunny, etc), I decided to first experiment with a simple rectangular body to grasp the measurements of the stand.</p>
+
+							<span class="image main"><img src="images/image13.png" alt="" /></span>
+
+							<p>Using this initial guideline, I determined the measurements that I would need to find in order to fully define this design.</p>
+
+							<p>The measurements needed to determine the design are:</p>
+
+							<span class="image main"><img src="images/image5.png" alt="" /></span>
+
+							<p>Previously I determined slant angle x = 75 degrees, using this I started my design. Following this, I measured a physical phone as reference (Iphone 13 pro max) and determined that the thickness of the phone was approximately 11.5 mm, with tolerance I arrived at a width w = 13 mm for the phone stand. Using trigonometry, I calculated how this width would correspond to the base, leading to a length of 14 mm.</p>
+
+							<span class="image main"><img src="images/image1.png" alt="" /></span>
+
+							<p>For the front of the phone stand, it needed to be sturdy enough that it wouldn't break when a phone was put in the stand but not so thick that it would be just adding extra weight to the overall design (past the thickness needed to stay sturdy). Using these parameters, I decided that the width for the front of the phone stand should be 6 mm. Using a similar process, I decided that the height of the bottom portion of the front of the phone stand would be 4 mm. Next, I measured the screen of the phone to find a height for the front that would both be able to hold up the phone without covering too much of the screen, arriving at a height of 8 mm and giving the overall front of the stand a height of 12 mm.</p>
+
+							<span class="image main"><img src="images/image12.png" alt="" /></span>
+
+							<p>Designing the rear of the phone stand was the most complicated part of the design process. In order for the stand to hold up the phone without toppling, the center of gravity of the phone should be vertically within the base of the phone stand. To do this I first determined the center of gravity of the phone. Because the weight of a phone was pretty evenly distributed and the phone was a rectangular prism, the center of gravity would be near the center of the phone. The length of the model phone was around 166 mm, using the previous logic the center of gravity would be around 83 mm from the bottom (parallel to the phones sides). Following this, I used trigonometry to determine the length of the rear portion of the phone stand. I calculated that to be 22 mm. However, to ensure additional stability, I increased the length of the rear portion of the stand to be 25 mm. I also chose an arbitrary height of 25 mm on the rear.</p>
+
+							<span class="image main"><img src="images/image6.png" alt="" /></span>
+
+							<p>Using this sketch, I converted this design to CAD.</p>
+
+							<span class="image main"><img src="images/image9.png" alt="" /></span>
+
+							<p>Extruding this design into a 3D prototype (giving it a thickness of 13 mm), I arrived at this final design of my stand.</p>
+
+							<span class="image main"><img src="images/image4.png" alt="" /></span>
+							<span class="image main"><img src="images/image11.png" alt="" /></span>
+
+							<p>I converted this CAD design into a 3D printing slicer, converting the CAD into gcode. I then sent this to my 3D printer to create a physical model.</p>
+
+							<span class="image main"><img src="images/image3.png" alt="" /></span>
+
+							<p>After printing for approximately 19 min, the model, with a weight of 5 g and 125 layers, was complete.</p>
+
+							<span class="image main"><img src="images/image8.png" alt="" /></span>
+
+							<p>I tested this model on a variety of phones (IPhone 13 Pro Max, IPhone 16E, Iphone 14 Pro) and it was able to hold them stably.</p>
+
+							<span class="image main"><img src="images/image2.jpg" alt="" /></span>
+							<span class="image main"><img src="images/image7.jpg" alt="" /></span>
+
+							<h1>Next Steps</h1>
+							<p>Although this solution is stable and functional, some steps that can be taken to improve the design is to make it more aesthetically pleasing by replacing the geometrical design with the body of the animal or other unique shapes. In addition, I can also create a more generic design for the stand where anyone can provide parameters - width of the device, height of the device, and the viewing angle - and the design will adjust to these constraints.</p>
+
+							<p>MORE TO COME LATER</p>
+
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section id="follow-section"></section>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
