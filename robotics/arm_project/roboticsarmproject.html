@@ -1,0 +1,371 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Robotic Arm training Project | Shruthi Prabhu</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<script src="../../assets/js/menu-loader.js"></script>
+		<style>
+			.project-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 1.25rem;
+				margin: 1.25rem 0;
+			}
+			.project-figure {
+				margin: 0;
+				padding: 0.75rem;
+				background: rgba(255,255,255,0.03);
+				border: 1px solid rgba(255,255,255,0.1);
+				border-radius: 6px;
+			}
+			.project-figure img {
+				display: block;
+				width: 100%;
+				height: auto;
+				border-radius: 4px;
+				margin-bottom: 0.6rem;
+			}
+			.project-figure figcaption {
+				color: #585858;
+			}
+			.project-figure.large {
+				grid-column: 1 / -1;
+			}
+			.table-wrapper {
+				overflow-x: auto;
+			}
+			.crop-frame {
+				overflow: hidden;
+				border-radius: 4px;
+				margin: 0 auto 0.6rem;
+				max-width: 100%;
+			}
+			.crop-frame img {
+				display: block;
+				max-width: none;
+				width: auto;
+				height: auto;
+				border-radius: 0;
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<h1>Robotic Arm training Project</h1>
+
+					<section>
+						<h2>Objective:</h2>
+						<p>I want to be able to build and train a robot that has the capabilities to help families around the world have affordable solutions to do mundane tasks (ex. folding clothes, watering plants, etc) that cannot be automated with traditional systems. Specifically, this arm should be able to sort through and fold clothes of any order and in any environment.</p>
+						<p>While my intent is to fold clothes some other use cases of this robot can be:</p>
+						<ul>
+							<li>Wiping surfaces: Cleaning down kitchen counters, stovetops, and dining tables after meals.</li>
+							<li>Managing dishes: Loading and unloading the dishwasher or hand-washing pots and pans.</li>
+							<li>Fridge upkeep: Purging expired food, wiping down sticky shelves, and taking inventory before grocery shopping.</li>
+							<li>Appliance care: Descaling the coffee maker, cleaning the microwave interior, and clearing the toaster crumb tray.</li>
+							<li>Vacuuming: Cleaning carpets, rugs, and upholstery to remove dust, pet hair, and debris.</li>
+							<li>Sweeping &amp; mopping: Clearing hard floors in high-traffic areas like entryways, kitchens, and bathrooms.</li>
+							<li>Dusting: Wiping down baseboards, blinds, ceiling fans, light fixtures, and electronic screens.</li>
+							<li>Sorting &amp; washing: Separating whites from colors and running loads of clothing, towels, and sheets.</li>
+							<li>Drying &amp; folding: Transferring wet clothes to the dryer or hanging them to air-dry, followed by folding and putting them away.</li>
+							<li>Bed making: Straightening sheets daily and changing out linens once a week.Bathroom Sanitation</li>
+							<li>Scrubbing fixtures: Cleaning the toilet bowl, disinfecting the sink, and scrubbing shower walls or bathtubs to prevent soap scum.</li>
+							<li>Mirror polishing: Wiping away water spots and toothpaste splatters from glass surfaces.</li>
+							<li>Emptying bins: Collecting trash, compost, and recycling from various rooms and taking them to outdoor bins.</li>
+							<li>Sanitizing cans: Rinsing out and disinfecting trash cans to eliminate odors.</li>
+							<li>Yard work: Mowing the lawn, raking dead leaves, pulling weeds from garden beds, or shoveling snow.</li>
+							<li>Vehicle care: Washing the car exterior and vacuuming the seats and floor mats.</li>
+							<li>Pet duties: Scooping the litter box, cleaning up the yard after a dog, or washing pet food bowls.</li>
+						</ul>
+
+						<h3>How do we plan on achieving this?</h3>
+						<p>I plan on building a Humanoidal robot (a robot consisting of an arm) and training it using AI to take care of [chore name]. To do this I will start by building a Follower and leader arm using an open source arm design (the main point of this project is for it to be affordable for families around the world meaning that open source arms can help reduce design costs).</p>
+					</section>
+
+					<section>
+						<h2>Open Sourced Arms</h2>
+						<p>There are many open-sourced arms on their internet, each with their own pros and cons. Through extensive research, I determined that the design best suiting my intent is the SO101 Arm.</p>
+
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>ARM</th>
+										<th>PROS</th>
+										<th>CONS</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											Open Arm 2.0<br />
+											<img src="images/image20.png" alt="Open Arm 2.0" style="width:121.43px;height:157.02px;" />
+										</td>
+										<td>
+											<ul>
+												<li>Has force feedback making it easier to do delicate chores</li>
+												<li>Has open sourced software</li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li>Hard to fabricate (requires complex machine and wiring)</li>
+												<li>High costs for parts and motors (against my goal of affordability)</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											SO101 Arm<br />
+											<img src="images/image2.png" alt="SO101 Arm" style="width:117.50px;height:201.98px;" />
+										</td>
+										<td>
+											<ul>
+												<li>Easiest to fabricate (intended to be entirely 3d printed; can use cheap servos)</li>
+												<li>Can be trained using a leader and follower arms
+													<ul>
+														<li>Makes it easier to train with actual human movements</li>
+													</ul>
+												</li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li>Weaker material (entirely 3d printed; Plastic can easily snap)</li>
+												<li>It can not handle tasks that require more force and carrying heavy loads</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											ReBot Arm<br />
+											<div class="crop-frame" style="width:125px;height:131px;">
+												<img src="images/image14.png" alt="ReBot Arm" style="width:144.05px;height:131px;margin-left:-9px;margin-top:0px;" />
+											</div>
+										</td>
+										<td>
+											<ul>
+												<li>Great for aI training (can connect to many ai toolkits)</li>
+												<li>Durable (can lift heavier objects without much struggle)</li>
+											</ul>
+										</td>
+										<td>
+											<ul>
+												<li>Harder to fabricate (requires laser cut metal parts)</li>
+												<li>Heavy (Has a huge metal frame that makes it extremely heavy and space consuming)</li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h3>How does so101 fit my purpose best?</h3>
+						<p>The SO101 Arm is the best fit for my project because it most closely aligns with the objectives of my project. One of the main goals for this project is for it to be an affordable solution to mundane daily tasks. Because the SO101 is designed to be entirely 3d printed it is much more financially viable. In addition, the ease of fabricating makes it easier for me and for other families to easily replicate the arm. Moreover, So101 can be trained intuitively, speeding up the initial training stages and making it easier for others to contribute to training the arm. Some of the main cons for this arm is that it is less durable than the other arms; however, because the arm is being trained to fold clothes (a more delicate task) this does not pose an issue.</p>
+					</section>
+
+					<section>
+						<h2>So101 Build Process</h2>
+
+						<h3>Gauge</h3>
+						<p>To create the SO101 arm I need to start by fabricating 3d printed parts. Because this requires printing a large amount of objects, it is a very time consuming process (15+ per arm). This means that if there is a slight issue with tolerancing that creates grooves that are too large or too small it will require almost a full day of reprinting. In order to prevent this issue I first began by printing a gauge to test my printer's accuracy.</p>
+
+						<div class="project-grid">
+							<figure class="project-figure">
+								<img src="images/image21.png" alt="CAD of the STS3215 gauge" />
+								<figcaption>1A</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<img src="images/image15.png" alt="Gauge model in the AnyCubic Slicer" />
+								<figcaption>1b</figcaption>
+							</figure>
+						</div>
+						<p>Figure 1A (left) shows the CAD of the STS3215 gauge and Figure 1b (right) shows the model on the AnyCubic Slicer (used to compile GCode to 3d print part)</p>
+
+						<div class="project-grid">
+							<figure class="project-figure">
+								<div class="crop-frame" style="width:170.86px;height:223.50px;">
+									<img src="images/image11.png" alt="Gauge print iteration 2A" style="width:538.47px;height:223.50px;margin-left:0px;margin-top:0px;" />
+								</div>
+								<figcaption>2A</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<div class="crop-frame" style="width:170.86px;height:223.50px;">
+									<img src="images/image11.png" alt="Gauge print iteration 2b" style="width:538.47px;height:223.50px;margin-left:-183.81px;margin-top:0px;" />
+								</div>
+								<figcaption>2b</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<div class="crop-frame" style="width:170.86px;height:223.50px;">
+									<img src="images/image11.png" alt="Gauge print iteration 2c" style="width:538.47px;height:223.50px;margin-left:-359.62px;margin-top:0px;" />
+								</div>
+								<figcaption>2c</figcaption>
+							</figure>
+						</div>
+						<p>After the first print (Figure 2A), I compared the gauge to my STS3215 servo and found that the motor was barely able to fit into the gauge and couldn't be fully pushed through. To fix this I needed to increase the tolerance of the gauge, which I did by reducing the xy contour compensation from 0 to -0.12 mm (adjusts the perimeter size without changing other dimensions allowing the motor to slide more freely through the gauge). I decided to increase the XY contour compensation gradually (in steps) because if the gauge becomes too loose it may cause the motor to slip out of the arm in the final print. After printing this (Figure 2b) I found that, although this was much better than the previous gauge, it was still too tight for the motor to slide through without excessive force. Once again I fixed this by changing the xy contour compensation, reducing it from -0.12 mm to -0.15mm. This version (Figure 2C) ended up being the perfect tolerance for the gauge so I decided to keep this for the actual print.</p>
+
+						<h3>Printing the Follower and Leader Arms</h3>
+						<p>To print the follower arm I started by prepping the Gcode in the anycubic slicer. The settings I used to print the follower arm are:</p>
+						<figure class="project-figure large">
+							<img src="images/image16.png" alt="Follower arm print settings" />
+							<figcaption>3a</figcaption>
+						</figure>
+
+						<p>I left the print overnight and the next day I received the following result.</p>
+						<div class="project-figure" style="max-width:514px;margin:0 auto 1.25rem;">
+							<div class="crop-frame" style="width:514px;height:543px;">
+								<img src="images/image18.png" alt="First print result" style="width:514px;height:635px;margin-left:0px;margin-top:-92px;" />
+							</div>
+							<figcaption>4A</figcaption>
+						</div>
+
+						<p>Although the print was completed successfully, I noticed some issues. The printer created an extremely large amount of supports. And under further inspection I noticed that a large portion of the supports were, in fact, not helping with the printing of the structure. This was not only a waste of material, but also a waste of time taken to print the parts.</p>
+						<figure class="project-figure large">
+							<img src="images/image13.png" alt="Unnecessary print supports" />
+							<figcaption>5a - These are some example of supports that were printed but had no useful function (the print would have completed successfully even without these supports)</figcaption>
+						</figure>
+
+						<p>To fix this issue, I decided to go back and look at the settings in the anycubic slicer. Before the first print I had made sure to remove small overhangs (making it so that supports weren't created for any small overhangs that didn't require support), so I hadn't expected the unnecessary support. This time when I went back to the settings I found another option to support only critical regions. After enabling this setting the time and material required for the print reduced drastically.</p>
+
+						<div class="project-grid">
+							<figure class="project-figure">
+								<img src="images/image12.png" alt="Support settings before" />
+								<figcaption>6A</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<img src="images/image19.png" alt="Support settings after" />
+								<figcaption>6B</figcaption>
+							</figure>
+							<figure class="project-figure large">
+								<img src="images/image22.png" alt="Comparison of supports generated before and after" />
+								<figcaption>6C</figcaption>
+							</figure>
+							<figure class="project-figure large">
+								<img src="images/image7.png" alt="Support settings detail" />
+								<figcaption>6D</figcaption>
+							</figure>
+						</div>
+
+						<p>This shows the settings for supports that I used before (6A) and after (6b) the first print. The difference in supports generated can be seen in 6c. In the before section almost the entire surface surrounding the parts was covered in supports while afterwards less than a quarter of the previous supports remained. This removal of supports shows how the first print created more than 3 hours of additional printing and nearly 40 extra grams of filament.</p>
+
+						<p><strong>Savings:</strong></p>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th></th>
+										<th>With extra support</th>
+										<th>Without extra support</th>
+										<th>% improvement</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Weight</td>
+										<td>334.14 g</td>
+										<td>294.44 g</td>
+										<td>12%</td>
+									</tr>
+									<tr>
+										<td>Time</td>
+										<td>1029 min</td>
+										<td>838 min</td>
+										<td>19%</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<p>After adjusting the settings, I started the second print for the leader arm. Although this print went pretty smoothly, because one of the parts' first layers slipped in the middle of the print (likely due to oil/grease on the print bed) and was not caught in time one of the parts completely messed up and I reprinted it later on.</p>
+
+						<div class="project-grid">
+							<figure class="project-figure large">
+								<img src="images/image8.png" alt="Second print result" />
+								<figcaption>7a</figcaption>
+							</figure>
+							<figure class="project-figure large">
+								<img src="images/image6.png" alt="Fallen part" />
+								<figcaption>7b</figcaption>
+							</figure>
+							<figure class="project-figure large">
+								<img src="images/image23.png" alt="Reprinted part comparison" />
+								<figcaption>7c</figcaption>
+							</figure>
+						</div>
+
+						<p>In 7A, you can see the finished results of the second print. On the left, front side of the image there is a mess of filament that came from the printer attempting to add a layer to a part that fell off the plate. In 7b you can see the part that fell. On the top of the part, you can see that it is incomplete as you can see the part's infill. You can see a comparison of the incomplete part with the reprint in 7C.. For the reprint I reoriented the part so that it was more sturdy.</p>
+
+						<p>After finishing the print of the parts for both the follower and leader arm, I removed all the external supports so that it was ready to be put together.</p>
+
+						<h3>Building the Follower and Leader Arms</h3>
+						<p>After finishing the print of all the parts, I began assembling the arm. To do this, I followed the instructions on the <a href="https://huggingface.co/docs/lerobot/en/so101" target="_blank" rel="noopener noreferrer">Hugging Face documentation</a>. I began by building the follower arm. Prepping for this arm was simple because all of the joints required the same amount of torque (30 kg/cm). On the other hand, when building the leader arm I had to label different motors according to their joints. The purpose of this difference is to make it easier to move the leader arm, while the follower arm still had the torque required for more complex tasks. Overall, the build for the two arms was very similar (with an exception of the claw for the follower arm and the trigger for the leader arm), making the process for building the second (Leader) arm a simpler process (as I have already figured out small details from building the follower arm).</p>
+
+						<div class="project-grid">
+							<figure class="project-figure">
+								<img src="images/image24.png" alt="Follower arm motor prep" />
+								<figcaption>8A</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<img src="images/image17.png" alt="Follower arm motor prep continued" />
+								<figcaption>8B</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<div class="crop-frame" style="width:188.50px;height:300.06px;">
+									<img src="images/image10.png" alt="Leader arm motor prep" style="width:188.50px;height:332.28px;margin-left:0px;margin-top:-22.74px;" />
+								</div>
+								<figcaption>9A</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<img src="images/image4.png" alt="Leader arm motor prep continued" />
+								<figcaption>9B</figcaption>
+							</figure>
+						</div>
+						<p>This is the motor prep for the follower (8A and 8B) arm and the leader (9A and 9B) arm.</p>
+
+						<p><strong>Issues I faced along the way:</strong></p>
+						<p>Along the way I faced many issues regarding the build of the arms. I have never really built a robot similar to this before: previously it has always been a standard set of pieces (which I am pretty familiar with). Because of this, it required extensive research to figure out the orientation of motors, which sides required screws and so on. However, after figuring this out the process became a lot easier. In addition, when removing the supports occasionally a thin layer of the supports sticks to the bottom/inside of the parts. This made it so that some parts weren't able to fit in its location because the layer surpassed the tolerancing. To fix this issue, I had to file many of the parts to remove this extra layer. Finally, some of the parts had supports within the holes of the part. This was extremely difficult to remove (often required redrilling the parts) and made it so that occasionally the screw was unable to fit in the hole.</p>
+
+						<figure class="project-figure large">
+							<img src="images/image5.png" alt="Filament covering screw holes" />
+							<figcaption>10A</figcaption>
+						</figure>
+						<p>The arrows in image 10A show the extra filament that covered some of the holes, making it difficult to properly tighten the screws into the motor.</p>
+
+						<div class="project-grid">
+							<figure class="project-figure">
+								<img src="images/image1.png" alt="Leader arm final build" />
+								<figcaption>11A</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<img src="images/image3.png" alt="Follower arm final build" />
+								<figcaption>11B</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<img src="images/image9.png" alt="Follower arm final build, alternate angle" />
+								<figcaption>11c</figcaption>
+							</figure>
+						</div>
+						<p>These are the final build (not including wiring) for the Leader (11A) and the follower (11B and 11C) arms.</p>
+					</section>
+				</div>
+			</div>
+
+			<footer id="footer">
+				<div class="inner">
+					<section id="follow-section"></section>
+				</div>
+			</footer>
+		</div>
+
+		<script src="../../assets/js/jquery.min.js"></script>
+		<script src="../../assets/js/browser.min.js"></script>
+		<script src="../../assets/js/breakpoints.min.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/main.js"></script>
+	</body>
+</html>
