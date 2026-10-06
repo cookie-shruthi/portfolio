@@ -51,6 +51,21 @@
 				border-radius: 0;
 				margin-bottom: 0;
 			}
+			.video-frame {
+				position: relative;
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				margin-bottom: 0.6rem;
+				border-radius: 4px;
+				overflow: hidden;
+			}
+			.video-frame iframe {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				border: 0;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -351,6 +366,173 @@
 							</figure>
 						</div>
 						<p>These are the final build (not including wiring) for the Leader (11A) and the follower (11B and 11C) arms.</p>
+					</section>
+
+					<section>
+						<h2>Wiring and Configuring the SO101 Arms</h2>
+						<p>First, I learned about the difference between wiring in VEX robots, which I have worked on in the past (direct connections between the brain and the motors), and the wiring in the arms (<a href="https://en.wikipedia.org/wiki/I2C" target="_blank" rel="noopener noreferrer">I2C</a>).</p>
+						<p>I2C is a two-wire serial communication system, or in other words, a system where, in this case, the motors are connected to the brain.</p>
+
+						<figure class="project-figure large">
+							<div class="crop-frame" style="width:542px;height:255.87px;">
+								<img src="images/image35.png" alt="I2C master and slave wiring diagram" style="width:542px;height:284px;margin-top:-28.13px;" />
+							</div>
+							<figcaption>12A</figcaption>
+						</figure>
+						<p>In this case the I2C Master represents the &ldquo;Brain&rdquo; (Motor control board) while the 6 motors for each arm act as the slaves.</p>
+
+						<div class="project-grid">
+							<figure class="project-figure">
+								<img src="images/image34.png" alt="Motor control board" />
+								<figcaption>13A</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<div class="crop-frame" style="width:220.50px;height:303.37px;">
+									<img src="images/image30.png" alt="Motor control board ports" style="width:220.50px;height:342.59px;" />
+								</div>
+								<figcaption>13B</figcaption>
+							</figure>
+						</div>
+						<p>In the motor control board the green port is for power, the beige for the serial wires, and the metallic for the computer wire. On the power terminal (green power), there was no place to connect the power source wire. Instead, I had to use a power source adapter, and using the bottom of the board to identify the positive and negative sides, I was able to connect the red wire to positive and the black wire to negative (universal DC wiring).</p>
+
+						<div class="project-grid">
+							<figure class="project-figure">
+								<img src="images/image27.png" alt="Power source adapter" />
+								<figcaption>14A</figcaption>
+							</figure>
+							<figure class="project-figure">
+								<img src="images/image31.png" alt="Power wiring to the motor control board" />
+								<figcaption>14B</figcaption>
+							</figure>
+						</div>
+
+						<figure class="project-figure large">
+							<img src="images/image29.png" alt="Wires connected to each servo" />
+							<figcaption>15A</figcaption>
+						</figure>
+						<p>I connected the wires to each of the servos to prepare it for programming (15A).</p>
+
+						<h3>Configuring the Motors</h3>
+						<figure class="project-figure large">
+							<img src="images/image28.png" alt="lerobot-find-port output" />
+							<figcaption>16A</figcaption>
+						</figure>
+						<p>I connected my motor controller terminal to my computer and a power source and initialized it with the command <code>lerobot-find-port</code>. The port of this MotorsBus is <code>/dev/tty.usbmodem5B7A0000581</code> (16A).</p>
+
+						<p>I used the following command to set up the motor ids. I used the port from the previous step for the following command:</p>
+						<pre><code>lerobot-setup-motors \
+    --robot.type=so101_follower \
+    --robot.port=/dev/tty.usbmodem5B7A0000581</code></pre>
+
+						<figure class="project-figure large">
+							<img src="images/image25.png" alt="lerobot-setup-motors output" />
+							<figcaption>17A</figcaption>
+						</figure>
+						<p>As an outcome of the previous command, the motor id of 1-6 was assigned to various motors (17A) as shown below.</p>
+
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Motor</th>
+										<th>ID #</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td>Base / Shoulder Pan</td><td>1</td></tr>
+									<tr><td>Shoulder Lift</td><td>2</td></tr>
+									<tr><td>Elbow Flex</td><td>3</td></tr>
+									<tr><td>Wrist Flex</td><td>4</td></tr>
+									<tr><td>Wrist Roll</td><td>5</td></tr>
+									<tr><td>Gripper</td><td>6</td></tr>
+								</tbody>
+							</table>
+						</div>
+
+						<figure class="project-figure large">
+							<img src="images/image33.png" alt="Leader arm motor ID setup" />
+							<figcaption>18A</figcaption>
+						</figure>
+						<figure class="project-figure large">
+							<img src="images/image32.png" alt="Voltage error during leader arm setup" />
+							<figcaption>18B</figcaption>
+						</figure>
+						<p>I followed the same steps to assign IDs to the motors in the leader arm. The port for the motor controller board for the leader arm is <code>/dev/tty.usbmodem5B7A0003391</code>. An issue I faced while doing this was a voltage error (18B), after experimenting I discovered that this occurred because the power source for the Follower arm has more voltage than that of the Leader arm.</p>
+
+						<h3>Calibrating the Arms</h3>
+						<p>After this, I started calibrating the follower and leader arm. This is important because it allows the computer to know and compare the range of motion for both arms, which will allow you to teleoperate the arms (control the follower arm using the leader arm).</p>
+
+						<p>To calibrate the follower arm (19A) I used the following command:</p>
+						<pre><code>lerobot-calibrate \
+    --robot.type=so101_follower \
+    --robot.port=/dev/tty.usbmodem5B7A0000581 \
+    --robot.id=cookies_follower_arm</code></pre>
+
+						<figure class="project-figure large">
+							<img src="images/image26.png" alt="Follower arm calibration output" />
+							<figcaption>19A</figcaption>
+						</figure>
+						<figure class="project-figure large">
+							<div class="video-frame">
+								<iframe src="https://www.youtube.com/embed/BMZOlkb201Q" title="Follower arm calibration" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+							</div>
+							<figcaption>19A1</figcaption>
+						</figure>
+						<p>In 19A1, I&rsquo;ve included a video of my calibration process for the Follower arm.</p>
+
+						<p>Similarly to calibrate the leader arm (19B) I used the following command:</p>
+						<pre><code>lerobot-calibrate \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/tty.usbmodem5B7A0003391 \
+    --teleop.id=cookies_leader_arm</code></pre>
+
+						<figure class="project-figure large">
+							<img src="images/image36.png" alt="Leader arm calibration output" />
+							<figcaption>19B</figcaption>
+						</figure>
+						<figure class="project-figure large">
+							<div class="video-frame">
+								<iframe src="https://www.youtube.com/embed/CE7W-D1dh6Q" title="Leader arm calibration" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+							</div>
+							<figcaption>19B1</figcaption>
+						</figure>
+						<p>In 19B1, I&rsquo;ve included a video of my calibration process for the leader arm.</p>
+
+						<h3>Teleoperating the Arms</h3>
+						<p>After calibrating the arms I set up the teleoperating system using the following:</p>
+						<pre><code>lerobot-teleoperate \
+    --robot.type=so101_follower \
+    --robot.port=/dev/tty.usbmodem5B7A0000581 \
+    --robot.id=cookies_follower_arm \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/tty.usbmodem5B7A0003391 \
+    --teleop.id=cookies_leader_arm</code></pre>
+						<p>An issue I faced while doing this is that the terminal responded that it only recognized motor 1 and was unable to recognize the other 5 motors. This occurred because of a connection issue between motors 1 and 2, and because the motors are connected serially this made it so that the interrupted connection affected all 5 other motors. I fixed this by examining all the wiring connections and making sure everything was connected and operating as expected.</p>
+
+						<p>Here are some videos of me teleoperating the SO101:</p>
+						<figure class="project-figure large">
+							<div class="video-frame">
+								<iframe src="https://www.youtube.com/embed/TsOCRe5oWSo" title="Teleoperating the SO101 to place jenga blocks in a box" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+							</div>
+							<figcaption>20A</figcaption>
+						</figure>
+						<p>In 20A, I am using the SO101 to place scattered jenga blocks into a box (teleoperating not training).</p>
+
+						<figure class="project-figure large">
+							<div class="video-frame">
+								<iframe src="https://www.youtube.com/embed/gksq8N5TlP0" title="Teleoperating the SO101 to fold a t-shirt (first attempt)" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+							</div>
+							<figcaption>20B</figcaption>
+						</figure>
+						<p>In 20B, I am attempting to teleoperate the SO101 to fold a t-shirt. This does not go as expected due to a calibration issue: the claw on the follower arm did not close completely when the gripper was closed completely on the Leader arm. I fixed this by recalibrating both arms.</p>
+
+						<figure class="project-figure large">
+							<div class="video-frame">
+								<iframe src="https://www.youtube.com/embed/tLWpzO7busQ" title="Teleoperating the SO101 to fold a cloth" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+							</div>
+							<figcaption>20C</figcaption>
+						</figure>
+						<p>In 20C, I was able to successfully teleoperate the arm to fold the cloth. Some issues that I still saw during the process was that, although the previous calibration issue (claw not closing properly) was fixed, the claw was still not able to close fully due to physical limitations (the claw itself can not close because of motor range and parts interfering with one another). In addition, the arm is unable to reach the ends of larger pieces (and many normal pieces) of clothing due to its limited range of motion.</p>
 					</section>
 				</div>
 			</div>
